@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br" th:replace="~{fragmentos/fragmentosAdminV3 :: layout (~{:: main},~{:: title},~{:: script})}"
+      xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Atividade</title>
+
+</head>
+<body>
+<main>
+
+    <div class="row">
+        <div class="col-6 form-group  ">
+            <h6>Título: <b>
+                <div th:remove="tag" th:text="${atividade.titulo}"></div>
+            </b></h6>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-6 form-group  ">
+            <h6>Postada em: <b>
+                <div th:remove="tag" th:text="${#dates.format(atividade.dataCriacao, 'dd/MM/yyyy HH:mm')}"></div>
+            </b></h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6 form-group  ">
+            <h6><b>
+                <div th:remove="tag" th:text="${atividade.tipo.nome}"></div>
+            </b> para o dia: <b>
+                <div th:remove="tag" th:text="${#dates.format(atividade.prazoEntrega, 'dd/MM/yyyy HH:mm')}"></div>
+            </b></h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col form-group  ">
+            <h6>Descrição: <textarea id="content" th:text="${atividade.descricao}"></textarea></h6>
+        </div>
+    </div>
+
+
+
+    <div class="row text-center mb-2">
+        <div class="col">
+            <a class="btn btn-primary" th:href="@{/membro/grupo/editaAtividade/{id}(id=${atividade.id})}">Editar</a>
+        </div>
+
+    </div>
+
+    <div class="row text-center ">
+        <div th:if="${isCoordenador}" th:remove="tag">
+            <div class="col">
+                <a class="btn btn-primary" th:href="@{/membro/grupo/{id}(id=${atividade.grupo.id})}">Voltar</a>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+
+
+<script th:src="@{/js/cidades.js}"></script>
+<script th:src="@{/js/jquery.mask.min.js}"></script>
+<script th:src="@{/js/mascaras.js}"></script>
+
+
+<script th:src="@{/summernote/summernote-bs4.min.js}"></script>
+<script th:src="@{/summernote/lang/summernote-pt-BR.js}"></script>
+
+
+<script>
+
+
+    $('#content').summernote({
+        tabsize: 2,
+        toolbar: [
+            ['view', ['fullscreen', 'codeview', 'help']]
+        ],
+        disableDragAndDrop: true,
+        height: 200,
+
+        lang: 'pt-BR'
+    });
+
+    $('#content').summernote('disable');
+
+</script>
+</body>
+</html>

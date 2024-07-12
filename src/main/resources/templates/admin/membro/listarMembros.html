@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br" th:replace="~{fragmentos/fragmentosAdminV3 :: layout (~{:: main},~{:: title},~{:: script})}"
+      xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Membros</title>
+</head>
+<body>
+<main>
+
+    <form class="form-row mb-3" id="meuForm">
+        <div class=" col-12  col-md-12 col-lg-12 pt-2 ">
+            <label class="h5">Buscar Membro</label>
+
+        </div>
+        <div class="col-11 col-sm-6 col-md-3  mr-0">
+            <input class="form-control" id="buscar">
+
+        </div>
+        <div class=" col-1 pt-2">
+            <i class="fas fa-search"></i>
+
+        </div>
+
+
+    </form>
+
+    <div id="resultMembros"
+         th:include="fragmentos/fragmentoMembros :: membros"></div>
+    </div>
+
+</main>
+
+<script>
+    $(document).ready(function () {
+
+        $("#meuForm").submit(function (event) {
+            loadTable();
+            return false;
+        });
+        loadTable();
+
+    });
+
+    function loadTable() {
+        $("#buscar").keyup(function () {
+            var valor = $("#buscar").val();
+            if (valor != '') {
+                $("#resultMembros").load("/membro/admin/listaMembrosTabela/" + valor);
+            }
+        });
+    }
+
+
+</script>
+
+<script th:src="@{/js/utils.js}"></script>
+<script th:src="@{/js/cidades.js}"></script>
+<script th:src="@{/js/jquery.mask.min.js}"></script>
+<script th:src="@{/js/mascaras.js}"></script>
+
+
+</body>
+</html>

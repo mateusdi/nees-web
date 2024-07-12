@@ -1,0 +1,95 @@
+html, body {
+    height: 100%;
+    /*position: relative;*/
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.conteudo {
+    min-height: 100%;
+    flex: 1 0 0 auto;
+}
+
+
+.carousel {
+    width: 70%;
+}
+
+
+@media (max-width: 767px) {
+    main{
+        padding: 0;
+    }
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .carousel {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.navbar-light .navbar-brand {
+    color: white;
+    font-family: "Cambria";
+    font-size: 25px;
+}
+
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+
+.btn-primary:focus {
+    background-color: #69aca5 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.btn-primary {
+    color: #276561;
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+
+.btn-primary:hover {
+    color: #69aca5;
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+
+.mt-5 {
+    margin-top: 95px !important;
+}
+
+
+.navbar .navbar-collapse {
+    text-align: center;
+}
+
+.container{
+    min-height: 100%;
+    flex: 1 0 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.barrainferior{
+    color:white;
+    font-family: "Cambria";
+    font-size: 20px;
+}
